@@ -21,6 +21,7 @@ public class PersonController {
 	
 	@GetMapping
 	public List<Person> getAll(){
+		manager.findAll();
 		return null;
 	}
 	
@@ -41,6 +42,7 @@ public class PersonController {
 	
 	@DeleteMapping
 	public void remove(@RequestParam Long id) {
+		manager.remove(null);
 	}
 	
 
