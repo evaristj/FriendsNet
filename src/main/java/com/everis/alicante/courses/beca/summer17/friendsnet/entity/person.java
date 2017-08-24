@@ -17,5 +17,6 @@ public class Person implements FNEntity{
 	private String surname;
 	
 	private byte[] picture;
+	
 
 }
