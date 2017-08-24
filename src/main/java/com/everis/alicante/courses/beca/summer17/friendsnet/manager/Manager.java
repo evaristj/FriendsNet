@@ -6,11 +6,11 @@ public interface Manager<E, ID> {
 	
 	E findById(ID id);
 	
-	void save(E e);
+	E save(E e);
 	
 	void save(Iterable<E> es);
 	
-	void update(E e);
+	E update(E e);
 	
 	void update(Iterable<E> es);
 	

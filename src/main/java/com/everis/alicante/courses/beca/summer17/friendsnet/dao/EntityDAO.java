@@ -6,13 +6,13 @@ public interface EntityDAO<E, ID> {
 	
 	E findById(ID id);
 	
-	void save(E e);
+	E save(E e);
 	
-	void save(Iterable<E> es);
+	Iterable<E> save(Iterable<E> es);
 	
-	void update(E e);
+	E update(E e);
 	
-	void update(Iterable<E> es);
+	Iterable<E> update(Iterable<E> es);
 	
 	void remove(E e);
 
