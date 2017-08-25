@@ -23,8 +23,8 @@ public class PersonController {
 	
 	@GetMapping
 	public List<Person> getAll(){
-		manager.findAll();
-		return null;
+		
+		return (List<Person>) manager.findAll();
 	}
 	
 	@GetMapping("{id}")
@@ -44,7 +44,7 @@ public class PersonController {
 	
 	@DeleteMapping
 	public void remove(@RequestParam Long id) {
-		manager.remove(null);
+		manager.remove(manager.findById(id));
 	}
 	
 
