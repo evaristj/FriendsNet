@@ -42,15 +42,15 @@ public class GroupController {
 		return manager.save(group);
 	}
 	
-//	@GetMapping
-//	public Group getByPersonId(@RequestParam Long personId) {
-//		return manager.findById(personId);
-//	}
+	@GetMapping("/person{id}")
+	public Group getByPersonId(@RequestParam Long id) {
+		return null;
+	}
 	
-//	@PostMapping
-//	public Person relate(@RequestParam Long id,@RequestBody List<Long> group) {
-//		return null;
-//	}
+	@PostMapping("/{id}relate")
+	public Person relate(@RequestParam Long person, @RequestBody List<Person> persons) {
+		return null;
+	}
 	
 	@DeleteMapping
 	public void remove(@RequestParam Long id) {
