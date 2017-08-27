@@ -1,15 +1,13 @@
 package com.everis.alicante.courses.beca.summer17.friendsnet.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -28,7 +26,25 @@ public class Person implements FNEntity{
 
 	@OneToMany(mappedBy = "events")
 	@JsonIgnore
-	private Set<Event> events;
+	private Set<Event> events = new HashSet<>();
+
+	@OneToOne(mappedBy = "postByPerson")
+	@JsonIgnore
+	private Post postWritte;
+
+	@OneToOne(mappedBy = "likesByPerson")
+	@JsonIgnore
+	private Like likes;
+
+	@OneToMany(mappedBy = "personInGroup")
+	@JsonIgnore
+	private Set<Group> groups =new HashSet<>();
+
+	@ManyToMany(mappedBy = "friends")
+	@JsonIgnore
+	private Set<Person> friends = new HashSet<>();
+
+
 
 
 }

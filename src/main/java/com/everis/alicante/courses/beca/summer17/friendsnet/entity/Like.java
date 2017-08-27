@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Data
-@Entity
+@Entity(name="liketable")
 public class Like implements FNEntity {
 
     @Id
