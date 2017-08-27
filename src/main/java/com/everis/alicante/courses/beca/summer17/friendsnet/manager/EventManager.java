@@ -1,7 +1,7 @@
 package com.everis.alicante.courses.beca.summer17.friendsnet.manager;
 
-import com.everis.alicante.courses.beca.summer17.friendsnet.entity.ScheduledEvent;
+import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Event;
 
-public interface EventManager extends Manager<ScheduledEvent, Long>{
+public interface EventManager extends Manager<Event, Long>{
 
 }

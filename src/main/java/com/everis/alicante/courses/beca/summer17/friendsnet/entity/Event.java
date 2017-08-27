@@ -1,17 +1,22 @@
 package com.everis.alicante.courses.beca.summer17.friendsnet.entity;
 
+import com.everis.alicante.courses.beca.summer17.friendsnet.enums.EventType;
+import lombok.Data;
+
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.swing.event.DocumentEvent.EventType;
 
-@Entity
+@Data
+@Entity(name="TableEvent")
 public class Event implements FNEntity{
 	
 	@Id
 	@GeneratedValue
+	@Column(name="event_id")
 	private Long id;
 	
 	private String name;
@@ -20,51 +25,8 @@ public class Event implements FNEntity{
 	
 	private Date endingDate;
 	
-	private EventType Type;
+	private EventType type;
 	
 	private byte[] picture;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Date getStartingDate() {
-		return startingDate;
-	}
-
-	public void setStartingDate(Date startingDate) {
-		this.startingDate = startingDate;
-	}
-
-	public Date getEndingDate() {
-		return endingDate;
-	}
-
-	public void setEndingDate(Date endingDate) {
-		this.endingDate = endingDate;
-	}
-
-	public EventType getType() {
-		return Type;
-	}
-
-	public void setType(EventType type) {
-		Type = type;
-	}
-
-	public byte[] getPicture() {
-		return picture;
-	}
-
-	public void setPicture(byte[] picture) {
-		this.picture = picture;
-	}
-	
-	
-	
 
 }

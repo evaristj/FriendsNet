@@ -4,9 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
+@Data
 @Entity(name="grouptable")
 public class Group implements FNEntity{
 	
@@ -18,22 +19,5 @@ public class Group implements FNEntity{
 	
 	private byte[] picture;
 
-	
-	//GETTERS Y SETTERS
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public byte[] getPicture() {
-		return picture;
-	}
-
-	public void setPicture(byte[] picture) {
-		this.picture = picture;
-	}
 
 }

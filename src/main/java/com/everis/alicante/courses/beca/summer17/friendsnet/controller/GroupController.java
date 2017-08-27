@@ -34,26 +34,31 @@ public class GroupController {
 	
 	@GetMapping("/{id}")
 	public Group getById(@RequestParam Long id) {
+
 		return manager.findById(id);
 	}
 	
 	@PostMapping
 	public Group create(@RequestBody Group group) {
+
 		return manager.save(group);
 	}
 	
 	@GetMapping("/person{id}")
 	public Group getByPersonId(@RequestParam Long id) {
+
 		return null;
 	}
 	
 	@PostMapping("/{id}relate")
 	public Person relate(@RequestParam Long person, @RequestBody List<Person> persons) {
+
 		return null;
 	}
 	
 	@DeleteMapping
 	public void remove(@RequestParam Long id) {
+
 		manager.remove(manager.findById(id));
 	}
 
