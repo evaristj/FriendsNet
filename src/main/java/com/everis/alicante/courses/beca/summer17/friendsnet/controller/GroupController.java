@@ -46,7 +46,7 @@ public class GroupController {
 	
 	@GetMapping("/person{id}")
 	public Group getByPersonId(@RequestParam Long id) {
-
+		//FALTA RELLENAR
 		return null;
 	}
 	
