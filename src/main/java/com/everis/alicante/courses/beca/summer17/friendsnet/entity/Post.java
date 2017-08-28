@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -27,4 +28,13 @@ public class Post implements FNEntity {
     @JoinColumn(name = "event_id")
     @JsonIgnore
     private Event postInEvent;
+
+    @OneToMany(mappedBy = "likesByPost")
+    private Set<Like> likes;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    @JsonIgnore
+    private Person postByPerson;
+
 }

@@ -59,6 +59,7 @@ public class PersonManagerImpl implements PersonManager{
 		dao.remove(e);
 	}
 
+	//metodo relate sin terminar
 	@Override
 	public Person relatePersons(Person person, Iterable<Person> persons) {
 

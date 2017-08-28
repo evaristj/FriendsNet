@@ -52,7 +52,7 @@ public class GroupController {
 	
 	@PostMapping("/{id}relate")
 	public Person relate(@RequestParam Long person, @RequestBody List<Person> persons) {
-
+		//falta completar
 		return null;
 	}
 	

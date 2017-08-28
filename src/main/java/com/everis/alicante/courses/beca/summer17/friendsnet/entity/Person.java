@@ -12,19 +12,16 @@ import java.util.Set;
 
 @Data
 @Entity
+@Table(name="person")
 public class Person implements FNEntity{
-	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
 	private String name;
-	
 	private String surname;
-	
 	private byte[] picture;
 
-	@OneToMany(mappedBy = "events")
+	@OneToMany(mappedBy = "personsInEvent")
 	@JsonIgnore
 	private Set<Event> events = new HashSet<>();
 
@@ -40,9 +37,9 @@ public class Person implements FNEntity{
 	@JsonIgnore
 	private Set<Group> groups =new HashSet<>();
 
-	@ManyToMany(mappedBy = "friends")
-	@JsonIgnore
-	private Set<Person> friends = new HashSet<>();
+//	@ManyToMany(mappedBy = "friends")
+//	@JsonIgnore
+//	private Set<Person> friends = new HashSet<>();
 
 
 
