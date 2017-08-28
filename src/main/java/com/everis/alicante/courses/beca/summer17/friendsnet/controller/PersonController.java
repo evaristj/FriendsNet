@@ -12,7 +12,7 @@ import com.everis.alicante.courses.beca.summer17.friendsnet.manager.PersonManage
 
 @RestController
 @RequestMapping("/person")
-@Transactional
+
 public class PersonController {
 	
 	@Autowired
