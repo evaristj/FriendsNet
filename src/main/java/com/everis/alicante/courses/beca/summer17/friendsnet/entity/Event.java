@@ -28,7 +28,7 @@ public class Event implements FNEntity{
 
 	@OneToMany
 	@JsonIgnore
-	@JoinColumn(name ="person_id", nullable = false)
+	@JoinColumn(name ="person_id")
 	private Set<Person> personsInEvent = new HashSet<>();
 
 	@OneToMany(mappedBy = "postInEvent", fetch = FetchType.EAGER)

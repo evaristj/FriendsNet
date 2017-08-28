@@ -12,45 +12,46 @@ public class PostManagerImpl implements PostManager {
 
     @Autowired
     PostDAO dao;
-
-    //FALTA RELLENAR
-    @Override
-    public Post addLike(Like like) {
-        return null;
-    }
-
+    
+    //falta rellenar
     @Override
     public Iterable<Post> findAll() {
-        return null;
+        return dao.findAll();
     }
 
     @Override
-    public Post findById(Long aLong) {
-        return null;
+    public Post findById(Long id) {
+        return dao.findById(id);
     }
 
     @Override
-    public Post save(Post post) {
-        return null;
+    public Post save(Post e) {
+        return dao.save(e);
     }
 
     @Override
-    public Iterable<Post> save(Iterable<Post> posts) {
-        return null;
+    public Iterable<Post> save(Iterable<Post> es) {
+        return dao.save(es);
     }
 
     @Override
-    public Post update(Post post) {
-        return null;
+    public Post update(Post e) {
+        return dao.update(e);
     }
 
     @Override
-    public Iterable<Post> update(Iterable<Post> posts) {
-        return null;
+    public Iterable<Post> update(Iterable<Post> es) {
+        return dao.update(es);
     }
 
     @Override
-    public void remove(Post post) {
-
+    public void remove(Post es) {
+    	dao.remove(es);
     }
+
+		@Override
+		public Post addLike(Long id, Like like) {
+
+			return dao.addLike(id, like);
+		}
 }

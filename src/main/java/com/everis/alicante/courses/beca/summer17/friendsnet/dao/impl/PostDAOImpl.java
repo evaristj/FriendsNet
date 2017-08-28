@@ -9,8 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostDAOImpl extends AbstractDAO<Post, Long> implements PostDAO{
 
-    @Override
-    public Post addLike(Like like) {
-        return null;
-    }
+	@Override
+	public Post addLike(Long id, Like like) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

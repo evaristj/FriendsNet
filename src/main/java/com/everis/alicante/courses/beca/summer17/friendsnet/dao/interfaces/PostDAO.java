@@ -5,6 +5,6 @@ import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Post;
 
 public interface PostDAO extends EntityDAO<Post, Long> {
 
-    public Post addLike(Like like);
+    public Post addLike(Long id, Like like);
 
 }

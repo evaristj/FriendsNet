@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -30,7 +31,8 @@ public class Post implements FNEntity {
     private Event postInEvent;
 
     @OneToMany(mappedBy = "likesByPost")
-    private Set<Like> likes;
+    @JsonIgnore
+    private Set<Like> likes = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "person_id")

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -52,9 +53,9 @@ public class SwaggerConfig {
 	 */
 
 	private ApiInfo apiInfo() {
-		ApiInfo apiInfo = new ApiInfo("Sample Application REST API",
-				"The API exposes common functionallities to " + "manage the FirendsNet", "API TOS", "Terms of service",
-				"ginxaco@gmail.com", "License of API", "API license URL");
-		return apiInfo;
+		return new ApiInfo ("FriendsNet Application REST API",
+				"The API exposes common functionallities to manage the FirendsNet", "Version 0.1", "Terms of service", new Contact("Evarist Jaume",
+					"evaristjaumet@gmail.com", "movie3000.herokuapp.com"),"Creative commons NoCommercial-Atributtion 4.0 Internacional.", "http://creativecommons.org/licenses/by-nc/4.0/");
+		
 	}
 }

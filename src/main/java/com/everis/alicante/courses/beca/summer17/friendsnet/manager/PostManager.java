@@ -6,6 +6,6 @@ import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Post;
 public interface PostManager extends Manager<Post, Long> {
 
 
-    Post addLike(Like like);
+    Post addLike(Long id, Like like);
 
 }

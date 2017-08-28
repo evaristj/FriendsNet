@@ -34,12 +34,12 @@ public class PostController {
     }
 
     @PostMapping
-    public Post create(@RequestBody Post post){
-        return manager.save(post);
+    public Post create(@RequestBody Post e){
+        return manager.save(e);
     }
 
     @DeleteMapping
-    public void remove(@PathVariable Long id){
+    public void remove(@RequestParam Long id){
         manager.remove(manager.findById(id));
     }
 
