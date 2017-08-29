@@ -26,11 +26,13 @@ public class PersonController {
 	
 	@GetMapping("/{id}")
 	public Person getById(@PathVariable Long id) {
-			return manager.findById(id);
+
+		return manager.findById(id);
 	}
 	
 	@PostMapping
 	public Person create(@RequestBody Person person) {
+
 		return manager.save(person);
 	}
 	
@@ -43,6 +45,7 @@ public class PersonController {
 	
 	@DeleteMapping
 	public void remove(@RequestParam Long id) {
+
 		manager.remove(manager.findById(id));
 	}
 	

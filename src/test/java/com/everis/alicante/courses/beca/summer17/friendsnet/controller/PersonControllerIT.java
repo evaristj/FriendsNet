@@ -18,6 +18,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+import java.util.Set;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PersonControllerIT {
@@ -63,8 +66,11 @@ public class PersonControllerIT {
         Person person =new Person();
         person.setName("Evarist");
         person.setSurname("Jaume");
-       dao.save(person);
-//        dao.save(new Person());
+        dao.save(person);
+        Person p2 = new Person();
+        p2.setName("pepe");
+        p2.setSurname("paca");
+        dao.save(p2);
 
         // Act
         ResponseEntity<String> response = restTemplate.exchange(
@@ -72,8 +78,18 @@ public class PersonControllerIT {
                 HttpMethod.GET, null, String.class);
 
         // Assert
-        JSONAssert.assertEquals("[{'id': 1, 'name':'Evarist', 'surname':'Jaume'}]", response.getBody(), false);
+        JSONAssert.assertEquals("[{'id': 1, 'name':'Evarist', 'surname':'Jaume'},{'id': 2, 'name':'pepe', 'surname':'paca'}]", response.getBody(), false);
     }
+
+/*    @Test
+    public void testFindAll() throws JSONException{
+        //Act
+        List<Person> all = (List<Person>)dao.findAll();
+
+        //Assert
+//        JSONAssert.assertEquals(2, all.size());
+
+    }*/
 
     private String createURLWithPort(String uri) {
         return "http://localhost:" + port + uri;
