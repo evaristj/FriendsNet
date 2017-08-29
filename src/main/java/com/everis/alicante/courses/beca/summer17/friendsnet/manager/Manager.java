@@ -9,11 +9,13 @@ public interface Manager<E extends FNEntity, ID extends Serializable> {
 	Iterable<E> findAll();
 	
 	E findById(ID id);
-	
+
 	E save(E e);
-	
-	Iterable<E> save(Iterable<E> es);
-	
+
+//	<S extends E> S save(E e);
+
+//	<S extends E> Iterable<S> save(Iterable<E> es);
+
 	E update(E e);
 	
 	Iterable<E> update(Iterable<E> es);

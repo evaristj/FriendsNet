@@ -21,7 +21,7 @@ public class PostManagerImpl implements PostManager {
 
     @Override
     public Post findById(Long id) {
-        return dao.findById(id);
+        return dao.findOne(id);
     }
 
     @Override
@@ -29,29 +29,29 @@ public class PostManagerImpl implements PostManager {
         return dao.save(e);
     }
 
-    @Override
+
     public Iterable<Post> save(Iterable<Post> es) {
         return dao.save(es);
     }
 
     @Override
     public Post update(Post e) {
-        return dao.update(e);
+        return dao.save(e);
     }
 
     @Override
     public Iterable<Post> update(Iterable<Post> es) {
-        return dao.update(es);
+        return dao.save(es);
     }
 
     @Override
     public void remove(Post es) {
-    	dao.remove(es);
+    	dao.delete(es);
     }
 
-		@Override
-		public Post addLike(Long id, Like like) {
+    @Override
+    public Post addLike(Long id, Like like) {
 
-			return dao.addLike(id, like);
-		}
+        return null;
+    }
 }

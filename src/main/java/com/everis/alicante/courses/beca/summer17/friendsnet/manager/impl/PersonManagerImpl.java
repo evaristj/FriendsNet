@@ -26,7 +26,7 @@ public class PersonManagerImpl implements PersonManager{
 	@Override
 	public Person findById(Long id) {
 
-		return dao.findById(id);
+		return dao.findOne(id);
 	}
 
 	@Override
@@ -35,35 +35,35 @@ public class PersonManagerImpl implements PersonManager{
 		return dao.save(e);
 	}
 
-	@Override
-	public Iterable<Person> save(Iterable<Person> es) {
-
-		return dao.save(es);
-	}
+//	@Override
+//	public Iterable<Person> save(Iterable<Person> es) {
+//
+//		return dao.save(es);
+//	}
 
 	@Override
 	public Person update(Person e) {
 
-		return dao.update(e);
+		return dao.save(e);
 	}
 
 	@Override
 	public Iterable<Person> update(Iterable<Person> es) {
 
-		return dao.update(es);
+		return dao.save(es);
 	}
 
 	@Override
 	public void remove(Person e) {
 
-		dao.remove(e);
+		dao.delete(e);
 	}
 
-	//metodo relate sin terminar
-	@Override
-	public Person relatePersons(Person person, Iterable<Person> persons) {
-
-		return dao.relatePersons(person, persons);
-	}
+//	//metodo relate sin terminar
+//	@Override
+//	public Person relatePersons(Person person, Iterable<Person> persons) {
+//
+//		return dao.relatePersons(person, persons);
+//	}
 
 }

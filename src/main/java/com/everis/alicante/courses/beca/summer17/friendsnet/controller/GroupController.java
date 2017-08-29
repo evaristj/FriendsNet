@@ -50,11 +50,11 @@ public class GroupController {
 		return null;
 	}
 	
-	@PostMapping("/{id}relate")
-	public Person relate(@RequestParam Long person, @RequestBody List<Person> persons) {
-		//falta completar
-		return null;
-	}
+//	@PostMapping("/{id}relate")
+//	public Person relate(@RequestParam Long person, @RequestBody List<Person> persons) {
+//		//falta completar
+//		return null;
+//	}
 	
 	@DeleteMapping
 	public void remove(@RequestParam Long id) {
