@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <Grouptable id="1" name="amigos"/>
+    <Grouptable id="2" name="familia"/>
+    <GroupTable id="3" name="trabajo" />
+    <GroupTable id="4" name="colegas" />
+
+</dataset>

@@ -80,11 +80,14 @@ public class PersonControllerIT {
                 HttpMethod.GET, null, String.class);
 
         // Assert
-        JSONAssert.assertEquals("[{'id': 1, 'name':'Evarist', 'surname':'Jaume'},{'id': 2, 'name':'Pepe', 'surname':'Pepito'},{'id': 4, 'name':'lola', 'surname':'peluquera'}]", response.getBody(), false);
+        JSONAssert.assertEquals("[{'id': 1, 'name':'Evarist', 'surname':'Jaume'}," +
+                "{'id': 2, 'name':'Pepe', 'surname':'Pepito'},{'id': 3, 'name':'Paca', 'surname':'Perez'}," +
+                "{'id': 4, 'name':'Lola', 'surname':'peluquera'}]", response.getBody(), false);
     }
 
     @Test
     @DatabaseSetup("/initial-person.xml")
+    @ExpectedDatabase(value = "/initial-person.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testFindOne() throws JSONException {
         // Act
         ResponseEntity<String> response = restTemplate.exchange(
@@ -96,15 +99,19 @@ public class PersonControllerIT {
     }
 
     @Test
+    @DatabaseSetup("/initial-person.xml")
+    @ExpectedDatabase(value = "/create-person.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testCreate() throws JSONException{
         Person person = new Person();
-        person.setName("paca");
-        person.setSurname("perez");
+        person.setName("Dani");
+        person.setSurname("Sanchez");
 
         HttpEntity<Person> entity = new HttpEntity<Person>(person, headers);
-        ResponseEntity<String> response = restTemplate.exchange(createURLWithPort("/person"), HttpMethod.POST, entity, String.class);
+        ResponseEntity<String> response = restTemplate.exchange(
+                createURLWithPort("/person"),
+                HttpMethod.POST, entity, String.class);
 
-        JSONAssert.assertEquals("{'id': 5, 'name': 'paca', 'surname': 'perez'}", response.getBody(), false);
+        JSONAssert.assertEquals("{'id': 5, 'name': 'Dani', 'surname': 'Sanchez'}", response.getBody(), false);
     }
 
     @Test
@@ -113,7 +120,7 @@ public class PersonControllerIT {
     public void testDelete() throws JSONException {
         // Act
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/person/5"),
+                createURLWithPort("/person"),
                 HttpMethod.DELETE, null, String.class);
 
         // Assert

@@ -60,16 +60,16 @@ public class PersonManagerImpl implements PersonManager{
 	}
 
 	//metodo relate prueba
-	@Override
-	public Person relatePersons(Long id, Long idFriend) {
-
-		Person person = dao.findOne(id);
-		Person friend = dao.findOne(idFriend);
-		person.getFriend().add(friend);
-		friend.getFriend().add(person);
-		return this.dao.save(person);
-
-
-	}
+//	@Override
+//	public Person relatePersons(Long id, Long idFriend) {
+//
+//		Person person = dao.findOne(id);
+//		Person friend = dao.findOne(idFriend);
+//		person.getFriend().add(friend);
+//		friend.getFriend().add(person);
+//		return this.dao.save(person);
+//
+//
+//	}
 
 }

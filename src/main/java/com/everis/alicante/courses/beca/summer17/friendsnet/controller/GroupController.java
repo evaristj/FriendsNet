@@ -5,13 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Group;
 import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Person;
@@ -33,7 +27,7 @@ public class GroupController {
 	}
 	
 	@GetMapping("/{id}")
-	public Group getById(@RequestParam Long id) {
+	public Group getById(@PathVariable Long id) {
 
 		return manager.findById(id);
 	}
@@ -45,7 +39,7 @@ public class GroupController {
 	}
 	
 	@GetMapping("/person{id}")
-	public Group getByPersonId(@RequestParam Long id) {
+	public Group getByPersonId(@PathVariable Long id) {
 		//FALTA RELLENAR
 		return null;
 	}
