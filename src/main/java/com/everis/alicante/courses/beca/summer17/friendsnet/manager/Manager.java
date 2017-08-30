@@ -12,9 +12,7 @@ public interface Manager<E extends FNEntity, ID extends Serializable> {
 
 	E save(E e);
 
-//	<S extends E> S save(E e);
-
-//	<S extends E> Iterable<S> save(Iterable<E> es);
+	Iterable<E> save(Iterable<E> e);
 
 	E update(E e);
 	

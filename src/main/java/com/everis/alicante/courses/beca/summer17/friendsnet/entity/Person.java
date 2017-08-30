@@ -35,9 +35,9 @@ public class Person implements FNEntity{
 	@JsonIgnore
 	private Set<Group> groups =new HashSet<>();
 
-//	@ManyToMany(mappedBy = "friends")
-//	@JsonIgnore
-//	private Set<Person> friends = new HashSet<>();
+	@ManyToMany(mappedBy = "friends")
+	@JsonIgnore
+	private Set<Person> friend = new HashSet<>();
 
 
 

@@ -35,11 +35,11 @@ public class PersonManagerImpl implements PersonManager{
 		return dao.save(e);
 	}
 
-//	@Override
-//	public Iterable<Person> save(Iterable<Person> es) {
-//
-//		return dao.save(es);
-//	}
+	@Override
+	public Iterable<Person> save(Iterable<Person> es) {
+
+		return dao.save(es);
+	}
 
 	@Override
 	public Person update(Person e) {
@@ -59,11 +59,17 @@ public class PersonManagerImpl implements PersonManager{
 		dao.delete(e);
 	}
 
-//	//metodo relate sin terminar
-//	@Override
-//	public Person relatePersons(Person person, Iterable<Person> persons) {
-//
-//		return dao.relatePersons(person, persons);
-//	}
+	//metodo relate prueba
+	@Override
+	public Person relatePersons(Long id, Long idFriend) {
+
+		Person person = dao.findOne(id);
+		Person friend = dao.findOne(idFriend);
+		person.getFriend().add(friend);
+		friend.getFriend().add(person);
+		return this.dao.save(person);
+
+
+	}
 
 }

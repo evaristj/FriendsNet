@@ -8,7 +8,7 @@ spring:
     url: jdbc:h2:~/db_friendsnet_test;DB_CLOSE_DELAY=1000;AUTO_SERVER=TRUE
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
 logging:
   level:
     org.springframework: INFO
