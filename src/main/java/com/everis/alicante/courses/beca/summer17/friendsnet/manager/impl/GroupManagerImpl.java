@@ -32,7 +32,6 @@ public class GroupManagerImpl implements GroupManager{
 		return dao.save(e);
 	}
 
-
 	public Iterable<Group> save(Iterable<Group> es) {
 
 		return dao.save(es);
@@ -57,6 +56,7 @@ public class GroupManagerImpl implements GroupManager{
 		
 	}
 
+	//TODO
 //	@Override
 //	public Group addPersons(Group group, Iterable<Person> persons) {
 //

@@ -1,6 +1,8 @@
 package com.everis.alicante.courses.beca.summer17.friendsnet.controller;
 
+import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Group;
 import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Person;
+import com.everis.alicante.courses.beca.summer17.friendsnet.manager.GroupManager;
 import com.everis.alicante.courses.beca.summer17.friendsnet.manager.PersonManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -9,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,6 +23,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,10 +32,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class GroupControllerTest {
 
     @InjectMocks
-    private PersonController personController;
+    private GroupController groupController;
 
     @Mock
-    private PersonManager personManager;
+    private GroupManager groupManager;
 
     private MockMvc mockMvc;
 
@@ -40,16 +44,16 @@ public class GroupControllerTest {
 
     @Before
     public void setup() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(personController).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(groupController).build();
         this.mapper = new ObjectMapper();
     }
 
     @Test
     public void testGetAllNoContent() throws Exception {
         // Arrange
-        Mockito.when(personManager.findAll()).thenReturn(null);
+        Mockito.when(groupManager.findAll()).thenReturn(null);
         // Act
-        ResultActions perform = mockMvc.perform(get("/person"));
+        ResultActions perform = mockMvc.perform(get("/group"));
         // Assert
         perform.andExpect(status().isOk());
     }
@@ -65,7 +69,7 @@ public class GroupControllerTest {
         List<Person> persons = new ArrayList<>();
         persons.add(persona);
         persons.add(personb);
-        Mockito.when(personManager.findAll()).thenReturn(persons);
+//        Mockito.when(personManager.findAll()).thenReturn(persons);
         // Act
         ResultActions perform = mockMvc.perform(get("/person"));
         // Assert
@@ -83,6 +87,16 @@ public class GroupControllerTest {
 
     @Test
     public void create() throws Exception {
+        //Arrenge
+        Group group = new Group();
+        group.setName("Anne");
+        Mockito.when(groupManager.save(group)).thenReturn(group);
+        //Act
+        String json = mapper.writeValueAsString(group);
+        ResultActions perfom = mockMvc.perform(post("/group").content(json).contentType(MediaType.APPLICATION_JSON));
+        //Assert
+        perfom.andExpect(status().isOk());
+        perfom.andExpect(content().json(mapper.writeValueAsString(group)));
     }
 
     @Test

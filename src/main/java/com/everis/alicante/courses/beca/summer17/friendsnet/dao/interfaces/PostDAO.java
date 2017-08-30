@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface PostDAO extends CrudRepository<Post, Long> {
 
+    //TODO
   //  public Post addLike(Long id, Like like);
 
 }

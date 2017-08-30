@@ -55,6 +55,7 @@ public class PersonManagerImpl implements PersonManager{
 		dao.delete(e);
 	}
 
+	//TODO
 	//metodo relate prueba
 //	@Override
 //	public Person relatePersons(Long id, Long idFriend) {

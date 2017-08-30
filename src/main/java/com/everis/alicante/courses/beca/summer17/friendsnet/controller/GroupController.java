@@ -15,9 +15,7 @@ import com.everis.alicante.courses.beca.summer17.friendsnet.manager.GroupManager
 @RequestMapping("/group")
 @Transactional
 public class GroupController {
-	
-	
-	
+
 	@Autowired
 	private GroupManager manager;
 	
@@ -40,10 +38,12 @@ public class GroupController {
 	
 	@GetMapping("/person{id}")
 	public Group getByPersonId(@PathVariable Long id) {
+		//TODO
 		//FALTA RELLENAR
 		return null;
 	}
-	
+
+	//TODO
 //	@PostMapping("/{id}relate")
 //	public Person relate(@RequestParam Long person, @RequestBody List<Person> persons) {
 //		//falta completar

@@ -20,5 +20,4 @@ public interface Manager<E extends FNEntity, ID extends Serializable> {
 	
 	void remove(E e);
 	
-
 }

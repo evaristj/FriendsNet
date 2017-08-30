@@ -12,8 +12,7 @@ public class PostManagerImpl implements PostManager {
 
     @Autowired
     PostDAO dao;
-    
-    //falta rellenar
+
     @Override
     public Iterable<Post> findAll() {
         return dao.findAll();
@@ -51,7 +50,7 @@ public class PostManagerImpl implements PostManager {
 
     @Override
     public Post addLike(Long id, Like like) {
-
+        //TODO
         return null;
     }
 }

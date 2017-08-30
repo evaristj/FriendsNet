@@ -28,6 +28,7 @@ public class PostController {
 
     @GetMapping("/person/{id}")
     public Post getByPersonId(@PathVariable Long id){
+        //TODO
         //no se si este metodo funciona
         return (Post) manager.findById(id);
     }

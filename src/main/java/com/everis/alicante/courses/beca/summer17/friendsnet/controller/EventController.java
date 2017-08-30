@@ -37,7 +37,8 @@ public class EventController {
 
 		return (Event)manager.findById(id);
 	}
-	
+
+	//TODO
 //	@GetMapping
 //	public Event addPerson(@PathVariable Long person, @PathVariable Long id) {
 //		return manager.save(e);
