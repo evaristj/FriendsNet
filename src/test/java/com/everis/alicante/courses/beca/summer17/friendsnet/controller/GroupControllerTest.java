@@ -3,7 +3,6 @@ package com.everis.alicante.courses.beca.summer17.friendsnet.controller;
 import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Group;
 import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Person;
 import com.everis.alicante.courses.beca.summer17.friendsnet.manager.GroupManager;
-import com.everis.alicante.courses.beca.summer17.friendsnet.manager.PersonManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +20,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -57,7 +55,6 @@ public class GroupControllerTest {
         // Assert
         perform.andExpect(status().isOk());
     }
-
 
     @Test
     public void testGetAllWithContent() throws Exception {
