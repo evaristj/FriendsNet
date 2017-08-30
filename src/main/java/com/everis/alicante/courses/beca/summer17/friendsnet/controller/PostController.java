@@ -14,12 +14,11 @@ import java.util.List;
 public class PostController {
 
     @Autowired
-    PostManager manager;
+    private PostManager manager;
 
     @GetMapping
     public List<Post> getAll(){
-        List<Post> persons = (List<Post>)manager.findAll();
-        return persons;
+        return (List<Post>)manager.findAll();
     }
 
     @GetMapping("/{id}")

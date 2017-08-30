@@ -13,10 +13,6 @@ public class PersonManagerImpl implements PersonManager{
 	@Autowired
 	private PersonDAO dao;
 	
-
-	
-	
-
 	@Override
 	public Iterable<Person> findAll() {
 

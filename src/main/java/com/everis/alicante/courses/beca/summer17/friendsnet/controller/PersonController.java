@@ -12,7 +12,6 @@ import com.everis.alicante.courses.beca.summer17.friendsnet.manager.PersonManage
 
 @RestController
 @RequestMapping("/person")
-
 public class PersonController {
 	
 	@Autowired
@@ -39,7 +38,7 @@ public class PersonController {
 	@PostMapping("/{id}/relate")
 	public Person relate(@PathVariable Long id, @RequestBody List<Long> persons) {
 
-		//falta completar
+		//TODO falta completar
 		return null;
 	}
 	

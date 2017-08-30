@@ -69,7 +69,7 @@ public class PersonControllerIT {
 //    }
 
     @Test
-    @DatabaseSetup("/initial-person.xml")
+    @DatabaseSetup("/db/initial-person.xml")
     public void testFindAllWithContent() throws JSONException {
         //Arrange
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
@@ -86,8 +86,8 @@ public class PersonControllerIT {
     }
 
     @Test
-    @DatabaseSetup("/initial-person.xml")
-    @ExpectedDatabase(value = "/initial-person.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
+    @DatabaseSetup("/db/initial-person.xml")
+    @ExpectedDatabase(value = "/db/initial-person.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testFindOne() throws JSONException {
         // Act
         ResponseEntity<String> response = restTemplate.exchange(
@@ -99,8 +99,8 @@ public class PersonControllerIT {
     }
 
     @Test
-    @DatabaseSetup("/initial-person.xml")
-    @ExpectedDatabase(value = "/create-person.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
+    @DatabaseSetup("/db/initial-person.xml")
+    @ExpectedDatabase(value = "/db/create-person.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testCreate() throws JSONException{
         Person person = new Person();
         person.setName("Dani");
@@ -115,8 +115,8 @@ public class PersonControllerIT {
     }
 
     @Test
-    @DatabaseSetup("/initial-person.xml")
-    @ExpectedDatabase(value = "/delete-person.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
+    @DatabaseSetup("/db/initial-person.xml")
+    @ExpectedDatabase(value = "/db/delete-person.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testDelete() throws JSONException {
         // Act
         ResponseEntity<String> response = restTemplate.exchange(

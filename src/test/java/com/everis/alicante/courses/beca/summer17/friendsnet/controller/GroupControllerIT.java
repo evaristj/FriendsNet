@@ -55,7 +55,7 @@ public class GroupControllerIT {
 
 
     @Test
-    @DatabaseSetup("/initial-group.xml")
+    @DatabaseSetup("/db/initial-group.xml")
     public void testFindAllWithContent() throws JSONException {
         //Arrange
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
@@ -71,8 +71,8 @@ public class GroupControllerIT {
     }
 
     @Test
-    @DatabaseSetup("/initial-group.xml")
-    @ExpectedDatabase(value = "/initial-group.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
+    @DatabaseSetup("/db/initial-group.xml")
+    @ExpectedDatabase(value = "/db/initial-group.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testFindOne() throws JSONException {
         //Arrange
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
@@ -87,8 +87,8 @@ public class GroupControllerIT {
     }
 
     @Test
-    @DatabaseSetup("/initial-group.xml")
-    @ExpectedDatabase(value = "/create-group.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
+    @DatabaseSetup("/db/initial-group.xml")
+    @ExpectedDatabase(value = "/db/create-group.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testCreate() throws JSONException{
        Group g1 = new Group();
        g1.setName("colegas");
@@ -103,8 +103,8 @@ public class GroupControllerIT {
 
 
     @Test
-    @DatabaseSetup("/initial-group.xml")
-    @ExpectedDatabase(value = "/delete-group.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
+    @DatabaseSetup("/db/initial-group.xml")
+    @ExpectedDatabase(value = "/db/delete-group.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
     public void testDelete() throws JSONException {
         // Act
         ResponseEntity<String> response = restTemplate.exchange(
